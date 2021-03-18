@@ -62,7 +62,7 @@ class DB:
 
     def getAllPasswords(self, alphabeticOrder=True, encrypted=True):
         sql_query = 'SELECT password from user'
-        sql_query_alphabetical_order = 'SELECT password FROM user ORDER BY email'
+        sql_query_alphabetical_order = 'SELECT password FROM user ORDER BY password'
 
         for row in self.cursor.execute(sql_query):
             formatted_password = str(row).replace(',', '').replace('(', '').replace(')', ''.replace("'", ''))
