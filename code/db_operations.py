@@ -23,7 +23,7 @@ class DB:
                 self.conn.commit()
 
     def update_email(self, old_email_address, new_email_address):
-        encrypted_email = Credentials.encryptEmail(old_email_address,new_email_address)
+        encrypted_email = Credentials.encryptEmail(old_email_address, new_email_address)
         user_emails = [(encrypted_email, old_email_address)]
 
         self.cursor.executemany('UPDATE user '
@@ -60,6 +60,26 @@ class DB:
                 else:
                     Credentials.decryptEmail(email=formatted_email)
 
+    def getAllPasswords(self, alphabeticOrder=True, encrypted=True):
+        sql_query = 'SELECT password from user'
+        sql_query_alphabetical_order = 'SELECT password FROM user ORDER BY email'
+
+        for row in self.cursor.execute(sql_query):
+            formatted_password = str(row).replace(',', '').replace('(', '').replace(')', ''.replace("'", ''))
+            if alphabeticOrder:
+                for password_row in self.cursor.execute(sql_query_alphabetical_order):
+                    formatted_password_row = str(password_row).replace(',', '').replace('(', '').replace(')', '') \
+                        .replace("'", '')
+
+                    if encrypted:
+                        print(formatted_password_row)
+                    else:
+                        Credentials.decryptPassword(password=str(formatted_password_row))
+            else:
+                if encrypted:
+                    print(formatted_password)
+                else:
+                    Credentials.decryptPassword(password=str(formatted_password))
 
 
 if __name__ == "__main__":
