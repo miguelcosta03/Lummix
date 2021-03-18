@@ -7,12 +7,9 @@ class DB:
         self.conn = sqlite3.connect(db)
         self.cursor = self.conn.cursor()
 
+    # OPERATE WITH USER ACCOUNT
     def create_account(self, email_address, password):
-        credentials = [(email_address, password)]
-
-        self.cursor.executemany('INSERT INTO user '
-                                'VALUES (?,?)', credentials)
-
+        Credentials.encryptAccount(email=email_address, password=password)
         self.conn.commit()
 
     def delete_account(self, email_adress):
@@ -26,7 +23,8 @@ class DB:
                 self.conn.commit()
 
     def update_email(self, old_email_address, new_email_address):
-        user_emails = [(new_email_address, old_email_address)]
+        encrypted_email = Credentials.encryptEmail(old_email_address,new_email_address)
+        user_emails = [(encrypted_email, old_email_address)]
 
         self.cursor.executemany('UPDATE user '
                                 'SET email=? '
@@ -34,19 +32,34 @@ class DB:
 
         self.conn.commit()
 
-    @staticmethod
-    def encrypt_password(password):
-        Credentials.encrypt(password)
-
-    def update_password(self, old_password, new_password):
-        encrypted_password = Credentials.encrypt(new_password)
-        user_passwords = [(encrypted_password, old_password)]
-
+    def update_password(self, email_address, old_password, new_password):
+        user_passwords = [(new_password, email_address, old_password)]
         self.cursor.executemany('UPDATE user '
                                 'SET password=? '
-                                'WHERE password=?', user_passwords)
+                                'WHERE email=? and password=?', user_passwords)
 
         self.conn.commit()
+
+    # DATA RETURN
+    def getAllEmails(self, alphabeticalOrder=True, encrypted=True):
+        sql_query = 'SELECT email FROM user'
+        sql_query_alphabetical_order = 'SELECT email FROM user ORDER BY email'
+        for row in self.cursor.execute(sql_query):
+            formatted_email = str(row).replace(',', '').replace('(', '').replace(')', '').replace("'", '')
+            if alphabeticalOrder:
+                for email_row in self.cursor.execute(sql_query_alphabetical_order):
+                    formatted_email_row = str(email_row).replace(',', '').replace('(', '').replace(')', '') \
+                        .replace("'", '')
+                    if encrypted:
+                        print(formatted_email_row)
+                    else:
+                        Credentials.decryptEmail(email=str(formatted_email_row))
+            else:
+                if encrypted:
+                    print(formatted_email)
+                else:
+                    Credentials.decryptEmail(email=formatted_email)
+
 
 
 if __name__ == "__main__":
