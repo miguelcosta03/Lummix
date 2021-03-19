@@ -14,6 +14,11 @@ class DB:
                                 'VALUES (?,?)', credentials)
         self.conn.commit()
 
+    def login_account(self, email_adress, password):
+        self.cursor.execute("SELECT email, password FROM user "
+                            "WHERE email LIKE'" + email_adress + "' AND password LIKE'" + password + "'")
+        self.conn.commit()
+
     def delete_account(self, email_adress):
         self.cursor.execute("SELECT rowid, * FROM user")
         rows = self.cursor.fetchall()

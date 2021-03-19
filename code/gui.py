@@ -434,8 +434,7 @@ class Ui_MainWindow(object):
             email = self.emailLineEdit.text()
             password = self.passwordLineEdit.text()
 
-            User.cursor.execute("SELECT email, password FROM user "
-                                "WHERE email like'" + email + "'AND password LIKE'" + password + "'")
+            User.login_account(email, password)
 
             result = User.cursor.fetchone()
 
