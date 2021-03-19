@@ -9,7 +9,9 @@ class DB:
 
     # OPERATE WITH USER ACCOUNT
     def create_account(self, email_address, password):
-        Credentials.encryptAccount(email=email_address, password=password)
+        credentials = [(email_address, password)]
+        self.cursor.executemany('INSERT INTO user '
+                                'VALUES (?,?)', credentials)
         self.conn.commit()
 
     def delete_account(self, email_adress):
