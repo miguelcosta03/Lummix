@@ -8,10 +8,10 @@ class DB:
         self.cursor = self.conn.cursor()
 
     # OPERATE WITH USER ACCOUNT
-    def create_account(self, email_address, password):
+    def create_account(self, email_address, password, username):
         credentials = [(email_address, password)]
         self.cursor.executemany('INSERT INTO user '
-                                'VALUES (?,?)', credentials)
+                                'VALUES (?,?, ?)', credentials)
         self.conn.commit()
 
     def login_account(self, email_adress, password):
@@ -40,11 +40,19 @@ class DB:
         self.conn.commit()
 
     def update_password(self, email_address, old_password, new_password):
-        user_passwords = [(new_password, email_address, old_password)]
+        credentials = [(new_password, email_address, old_password)]
         self.cursor.executemany('UPDATE user '
                                 'SET password=? '
-                                'WHERE email=? and password=?', user_passwords)
+                                'WHERE email=? AND password=?', credentials)
 
+        self.conn.commit()
+
+    def update_username(self, email_adress, old_username, new_username):
+        credentials = [(new_username, email_adress, old_username)]
+
+        self.cursor.executemany('UPDATE user '
+                                'SET username=? '
+                                'WHERE email=? AND password=?', credentials)
         self.conn.commit()
 
     # DATA RETURN
@@ -60,35 +68,54 @@ class DB:
                     if encrypted:
                         print(formatted_email_row)
                     else:
-                        Credentials.decryptEmail(email=str(formatted_email_row))
+                        Credentials.decryptEmail(encrypted_email=str(formatted_email_row))
             else:
                 if encrypted:
                     print(formatted_email)
                 else:
-                    Credentials.decryptEmail(email=formatted_email)
+                    Credentials.decryptEmail(encrypted_email=formatted_email)
 
     def getAllPasswords(self, alphabeticOrder=True, encrypted=True):
-        sql_query = 'SELECT password from user'
+        sql_query = 'SELECT password FROM user'
         sql_query_alphabetical_order = 'SELECT password FROM user ORDER BY password'
 
         for row in self.cursor.execute(sql_query):
-            formatted_password = str(row).replace(',', '').replace('(', '').replace(')', ''.replace("'", ''))
+            formatted_password = str(row).replace(',', '').replace('(', '').replace(')', '').replace("'", '')
             if alphabeticOrder:
                 for password_row in self.cursor.execute(sql_query_alphabetical_order):
                     formatted_password_row = str(password_row).replace(',', '').replace('(', '').replace(')', '') \
                         .replace("'", '')
-
                     if encrypted:
                         print(formatted_password_row)
                     else:
-                        Credentials.decryptPassword(password=str(formatted_password_row))
+                        Credentials.decryptPassword(encrypted_password=str(formatted_password_row))
             else:
                 if encrypted:
                     print(formatted_password)
                 else:
-                    Credentials.decryptPassword(password=str(formatted_password))
+                    Credentials.decryptPassword(encrypted_password=str(formatted_password))
+
+    def getAllUserNames(self, alphabeticalOrder=True, encrypted=True):
+        sql_query = 'SELECT username FROM user'
+        sql_query_alphabetical_order = 'SELECT username FROM user ORDER BY username'
+
+        for row in self.cursor.execute(sql_query):
+            formatted_username = str(row).replace(',', '').replace('(', '').replace(')', '').replace("'", '')
+            if alphabeticalOrder:
+                for username_row in self.cursor.execute(sql_query_alphabetical_order):
+                    formatted_username_row = str(username_row).replace(',', '').replace('(', '').replace(')', '') \
+                        .replace("'", '')
+                    if encrypted:
+                        print(formatted_username_row)
+                    else:
+                        Credentials.decryptUserName(encrypted_username=str(formatted_username_row))
+            else:
+                if encrypted:
+                    print(formatted_username)
+                else:
+                    Credentials.decryptUserName(encrypted_username=formatted_username)
 
 
 if __name__ == "__main__":
-    # Instantiate DataBase
+    # Instantiate DataBase For Test Operations Here
     Database = DB('database.db')
