@@ -9,14 +9,14 @@ class DB:
 
     # OPERATE WITH USER ACCOUNT
     def create_account(self, email_address, password, username):
-        credentials = [(email_address, password)]
+        credentials = [(email_address, password, username)]
         self.cursor.executemany('INSERT INTO user '
                                 'VALUES (?,?, ?)', credentials)
         self.conn.commit()
 
-    def login_account(self, email_adress, password):
-        self.cursor.execute("SELECT email, password FROM user "
-                            "WHERE email LIKE'" + email_adress + "' AND password LIKE'" + password + "'")
+    def login_account(self, username, password):
+        self.cursor.execute("SELECT username, password FROM user "
+                            "WHERE username LIKE'" + username + "' AND password LIKE'" + password + "'")
         self.conn.commit()
 
     def delete_account(self, email_adress):
@@ -56,6 +56,11 @@ class DB:
         self.conn.commit()
 
     # DATA RETURN
+    def getUsername(self, email):
+        self.cursor.execute('SELECT username FROM user '
+                            'WHERE email=?', email)
+        return email
+
     def getAllEmails(self, alphabeticalOrder=True, encrypted=True):
         sql_query = 'SELECT email FROM user'
         sql_query_alphabetical_order = 'SELECT email FROM user ORDER BY email'

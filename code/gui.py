@@ -14,20 +14,20 @@ class Ui_MainWindow(object):
         self.loginRegisterFrame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.loginRegisterFrame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.loginRegisterFrame.setObjectName("loginRegisterFrame")
-        self.emailLineEdit = QtWidgets.QLineEdit(self.loginRegisterFrame)
-        self.emailLineEdit.setGeometry(QtCore.QRect(80, 100, 111, 20))
-        self.emailLineEdit.setObjectName("emailLineEdit")
+        self.usernameLineEdit = QtWidgets.QLineEdit(self.loginRegisterFrame)
+        self.usernameLineEdit.setGeometry(QtCore.QRect(80, 100, 111, 20))
+        self.usernameLineEdit.setObjectName("usernameLineEdit")
         self.passwordLineEdit = QtWidgets.QLineEdit(self.loginRegisterFrame)
         self.passwordLineEdit.setGeometry(QtCore.QRect(80, 130, 111, 20))
         self.passwordLineEdit.setObjectName("passwordLineEdit")
-        self.emailLabel = QtWidgets.QLabel(self.loginRegisterFrame)
-        self.emailLabel.setGeometry(QtCore.QRect(30, 100, 47, 20))
+        self.usernameLoginLabel = QtWidgets.QLabel(self.loginRegisterFrame)
+        self.usernameLoginLabel.setGeometry(QtCore.QRect(10, 100, 71, 20))
         font = QtGui.QFont()
         font.setFamily("Segoe UI Black")
         font.setBold(True)
         font.setWeight(75)
-        self.emailLabel.setFont(font)
-        self.emailLabel.setObjectName("emailLabel")
+        self.usernameLoginLabel.setFont(font)
+        self.usernameLoginLabel.setObjectName("usernameLoginLabel")
         self.passwordLabel = QtWidgets.QLabel(self.loginRegisterFrame)
         self.passwordLabel.setGeometry(QtCore.QRect(10, 130, 71, 20))
         font = QtGui.QFont()
@@ -310,37 +310,71 @@ class Ui_MainWindow(object):
         self.createAccountFrame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.createAccountFrame.setObjectName("createAccountFrame")
         self.createAccountLabel = QtWidgets.QLabel(self.createAccountFrame)
-        self.createAccountLabel.setGeometry(QtCore.QRect(70, 0, 191, 71))
+        self.createAccountLabel.setGeometry(QtCore.QRect(100, 0, 191, 71))
         font = QtGui.QFont()
         font.setFamily("Cooper Black")
         font.setPointSize(16)
         self.createAccountLabel.setFont(font)
         self.createAccountLabel.setObjectName("createAccountLabel")
         self.createEmailLabel = QtWidgets.QLabel(self.createAccountFrame)
-        self.createEmailLabel.setGeometry(QtCore.QRect(70, 100, 31, 16))
+        self.createEmailLabel.setGeometry(QtCore.QRect(70, 130, 31, 16))
         self.createEmailLabel.setObjectName("createEmailLabel")
         self.createPasswordLabel = QtWidgets.QLabel(self.createAccountFrame)
-        self.createPasswordLabel.setGeometry(QtCore.QRect(50, 130, 51, 16))
+        self.createPasswordLabel.setGeometry(QtCore.QRect(50, 160, 51, 16))
         self.createPasswordLabel.setObjectName("createPasswordLabel")
         self.confirmPasswordLabel = QtWidgets.QLabel(self.createAccountFrame)
-        self.confirmPasswordLabel.setGeometry(QtCore.QRect(10, 160, 91, 16))
+        self.confirmPasswordLabel.setGeometry(QtCore.QRect(10, 190, 91, 16))
         self.confirmPasswordLabel.setObjectName("confirmPasswordLabel")
         self.createEmailLineEdit = QtWidgets.QLineEdit(self.createAccountFrame)
-        self.createEmailLineEdit.setGeometry(QtCore.QRect(100, 100, 113, 20))
+        self.createEmailLineEdit.setGeometry(QtCore.QRect(110, 130, 113, 20))
         self.createEmailLineEdit.setObjectName("createEmailLineEdit")
         self.createPasswordLineEdit = QtWidgets.QLineEdit(self.createAccountFrame)
-        self.createPasswordLineEdit.setGeometry(QtCore.QRect(100, 130, 113, 20))
+        self.createPasswordLineEdit.setGeometry(QtCore.QRect(110, 160, 113, 20))
         self.createPasswordLineEdit.setInputMethodHints(QtCore.Qt.ImhHiddenText | QtCore.Qt.ImhSensitiveData)
         self.createPasswordLineEdit.setObjectName("createPasswordLineEdit")
-        self.confimPasswordLineEdit = QtWidgets.QLineEdit(self.createAccountFrame)
-        self.confimPasswordLineEdit.setGeometry(QtCore.QRect(100, 160, 113, 20))
-        self.confimPasswordLineEdit.setObjectName("confimPasswordLineEdit")
+        self.confirmPasswordLineEdit = QtWidgets.QLineEdit(self.createAccountFrame)
+        self.confirmPasswordLineEdit.setGeometry(QtCore.QRect(110, 190, 113, 20))
+        self.confirmPasswordLineEdit.setObjectName("confirmPasswordLineEdit")
         self.createAccountButton = QtWidgets.QPushButton(self.createAccountFrame)
-        self.createAccountButton.setGeometry(QtCore.QRect(100, 190, 111, 51))
+        self.createAccountButton.setGeometry(QtCore.QRect(110, 220, 111, 51))
         self.createAccountButton.setObjectName("createAccountButton")
         self.passwordsDontMatchLabel = QtWidgets.QLabel(self.createAccountFrame)
-        self.passwordsDontMatchLabel.setGeometry(QtCore.QRect(100, 60, 191, 41))
+        self.passwordsDontMatchLabel.setGeometry(QtCore.QRect(100, 60, 111, 41))
         self.passwordsDontMatchLabel.setObjectName("passwordsDontMatchLabel")
+        self.createUserNameLabel = QtWidgets.QLabel(self.createAccountFrame)
+        self.createUserNameLabel.setGeometry(QtCore.QRect(50, 100, 51, 21))
+        self.createUserNameLabel.setObjectName("createUserNameLabel")
+        self.createUserNameLineEdit = QtWidgets.QLineEdit(self.createAccountFrame)
+        self.createUserNameLineEdit.setGeometry(QtCore.QRect(110, 100, 113, 20))
+        self.createUserNameLineEdit.setObjectName("createUserNameLineEdit")
+        self.mainFrame = QtWidgets.QFrame(self.centralwidget)
+        self.mainFrame.setEnabled(True)
+        self.mainFrame.setGeometry(QtCore.QRect(0, 0, 781, 611))
+        self.mainFrame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.mainFrame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.mainFrame.setObjectName("mainFrame")
+        self.welcomeMainFrameLabel = QtWidgets.QLabel(self.mainFrame)
+        self.welcomeMainFrameLabel.setEnabled(True)
+        self.welcomeMainFrameLabel.setGeometry(QtCore.QRect(270, 140, 161, 21))
+        font = QtGui.QFont()
+        font.setFamily("Cooper Black")
+        font.setPointSize(16)
+        self.welcomeMainFrameLabel.setFont(font)
+        self.welcomeMainFrameLabel.setObjectName("welcomeMainFrameLabel")
+        self.usernameLabel = QtWidgets.QLabel(self.mainFrame)
+        self.usernameLabel.setGeometry(QtCore.QRect(380, 130, 111, 41))
+        font = QtGui.QFont()
+        font.setFamily("Cooper Black")
+        font.setPointSize(16)
+        self.usernameLabel.setFont(font)
+        self.usernameLabel.setObjectName("usernameLabel")
+        self.helpFrame.raise_()
+        self.emailHelpFrame.raise_()
+        self.finalEmailAccountHelpFrame.raise_()
+        self.changeEmailAccountFrame.raise_()
+        self.createAccountFrame.raise_()
+        self.mainFrame.raise_()
+        self.loginRegisterFrame.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 791, 21))
@@ -354,6 +388,7 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
         # FRAME VISIBILITIES
+        self.mainFrame.setVisible(False)
         self.loginRegisterFrame.setVisible(True)
         self.createAccountFrame.setVisible(False)
         self.changeEmailAccountFrame.setVisible(False)
@@ -368,7 +403,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.emailLabel.setText(_translate("MainWindow", "EMAIL :"))
+        self.usernameLoginLabel.setText(_translate("MainWindow", "USERNAME:"))
         self.passwordLabel.setText(_translate("MainWindow", "PASSWORD:"))
         self.welcomeLabel.setText(_translate("MainWindow", "Welcome to \n"
                                                            "Lummix !"))
@@ -402,8 +437,8 @@ class Ui_MainWindow(object):
         self.verificationCodeLabel.setText(_translate("MainWindow", "Verification Code:"))
         self.verifyEmailCodeButton.setText(_translate("MainWindow", "Verify"))
         self.invalidEmailVerificationCode.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" "
-                                                                           "color:#ff0000;\">Invalid Verification "
-                                                                           "Code</span></p></body></html>"))
+                                                                           "color:#ff0000;\">Invalid Verification Code"
+                                                                           "</span></p></body></html>"))
         self.resendEmailVerificationCode.setText(_translate("MainWindow", "Resend Verification Code"))
         self.label.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" color:#006818;\">A new "
                                                     "verification code has been sent</span></p></body></html>"))
@@ -419,28 +454,39 @@ class Ui_MainWindow(object):
         self.confirmPasswordLabel.setText(_translate("MainWindow", "Confirm Password:"))
         self.createAccountButton.setText(_translate("MainWindow", "Create \n"
                                                                   "Account"))
-        self.passwordsDontMatchLabel.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" "
+        self.passwordsDontMatchLabel.setText(_translate("MainWindow", "<html><head/><body><p><span style=\""
                                                                       "color:#ff0000;\">Passwords Don\'t Match</span>"
                                                                       "</p></body></html>"))
+        self.createUserNameLabel.setText(_translate("MainWindow", "Username:"))
+        self.welcomeMainFrameLabel.setText(_translate("MainWindow", "Welcome, "))
+        self.usernameLabel.setText(_translate("MainWindow", "username"))
 
         # BUTTON ACTIONS
         self.loginButton.clicked.connect(lambda: self.login())
         self.signUpButton.clicked.connect(lambda: self.signUpAccount_clicked())
         self.createAccountButton.clicked.connect(lambda: self.createAccount())
 
+    # FRAMES OPERATION METHODS
+    def openMainFrame(self):
+        self.mainFrame.setVisible(True)
+        self.usernameLabel.setText(self.usernameLineEdit.text())
+
+    # USER ACCOUNT OPERATION METHODS
     def login(self):
         User = DB('database.db')
         try:
-            email = self.emailLineEdit.text()
+            username = self.usernameLineEdit.text()
             password = self.passwordLineEdit.text()
 
-            User.login_account(email, password)
+            User.login_account(username=username, password=password)
 
             result = User.cursor.fetchone()
 
             if result is not None:
                 self.loginRegisterFrame.setVisible(False)
                 self.incorretCredentialsLabel.setVisible(False)
+                self.openMainFrame()
+
 
             else:
                 self.incorretCredentialsLabel.setVisible(True)
@@ -456,16 +502,21 @@ class Ui_MainWindow(object):
     def createAccount(self):
         newUser = DB('database.db')
 
+        userName = self.createUserNameLineEdit.text()
         userEmail = self.createEmailLineEdit.text()
         userPassword = self.createPasswordLineEdit.text()
-        confirmUserPassword = self.confimPasswordLineEdit.text()
+        confirmUserPassword = self.confirmPasswordLineEdit.text()
 
         if userPassword == confirmUserPassword:
             self.passwordsDontMatchLabel.setVisible(False)
-            newUser.create_account(email_address=userEmail, password=userPassword)
+            self.createAccountFrame.setVisible(False)
+            newUser.create_account(email_address=userEmail, password=userPassword, username=userName)
+            self.openMainFrame()
+            self.usernameLabel.setText(self.createUserNameLineEdit.text())
 
         else:
             self.passwordsDontMatchLabel.setVisible(True)
+
 
 
 if __name__ == "__main__":
