@@ -392,6 +392,18 @@ class Ui_MainWindow(object):
         self.invalidEmailLabel.setEnabled(True)
         self.invalidEmailLabel.setGeometry(QtCore.QRect(230, 130, 71, 21))
         self.invalidEmailLabel.setObjectName("invalidEmailLabel")
+        self.usernameFieldEmpty = QtWidgets.QLabel(self.createAccountFrame)
+        self.usernameFieldEmpty.setGeometry(QtCore.QRect(230, 100, 71, 16))
+        self.usernameFieldEmpty.setObjectName("usernameFieldEmpty")
+        self.emailFieldEmpty = QtWidgets.QLabel(self.createAccountFrame)
+        self.emailFieldEmpty.setGeometry(QtCore.QRect(230, 130, 71, 16))
+        self.emailFieldEmpty.setObjectName("emailFieldEmpty")
+        self.passwordFieldEmpty = QtWidgets.QLabel(self.createAccountFrame)
+        self.passwordFieldEmpty.setGeometry(QtCore.QRect(230, 160, 71, 16))
+        self.passwordFieldEmpty.setObjectName("passwordFieldEmpty")
+        self.confirmPasswordFieldEmpty = QtWidgets.QLabel(self.createAccountFrame)
+        self.confirmPasswordFieldEmpty.setGeometry(QtCore.QRect(230, 190, 81, 16))
+        self.confirmPasswordFieldEmpty.setObjectName("confirmPasswordFieldEmpty")
         self.mainFrame = QtWidgets.QFrame(self.centralwidget)
         self.mainFrame.setEnabled(True)
         self.mainFrame.setGeometry(QtCore.QRect(0, 0, 781, 611))
@@ -450,6 +462,10 @@ class Ui_MainWindow(object):
         self.incorretCredentialsLabel.setVisible(False)
         self.passwordsDontMatchLabel.setVisible(False)
         self.invalidEmailLabel.setVisible(False)
+        self.usernameFieldEmpty.setVisible(False)
+        self.emailFieldEmpty.setVisible(False)
+        self.passwordFieldEmpty.setVisible(False)
+        self.confirmPasswordFieldEmpty.setVisible(False)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -462,9 +478,9 @@ class Ui_MainWindow(object):
         self.signUpButton.setText(_translate("MainWindow", "Sign Up"))
         self.signUpNowLabel.setText(_translate("MainWindow", "Don\'t have a Lummix account? \n"
                                                              " Sign Up now !"))
-        self.incorretCredentialsLabel.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" color:"
-                                                                       "#ff0000;\">Invalid Email or Password</span>"
-                                                                       "</p></body></html>"))
+        self.incorretCredentialsLabel.setText(_translate("MainWindow", "<html><head/><body><p><span style=\""
+                                                                       " color:#ff0000;\">Invalid Email or Password"
+                                                                       "</span></p></body></html>"))
         self.helpButton.setText(_translate("MainWindow", "Help Me"))
         self.helpLabel.setText(_translate("MainWindow", "Need Help? \n"
                                                         "Click on the \n"
@@ -479,9 +495,8 @@ class Ui_MainWindow(object):
         self.yourEmailLabel.setText(_translate("MainWindow", "Your Email: "))
         self.sendCodeButton.setText(_translate("MainWindow", "Send \n"
                                                              "Verification Code"))
-        self.invalidAccountEmail.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" "
-                                                                  "color:#ff0000;\">Invalid Email</span></p></body>"
-                                                                  "</html>"))
+        self.invalidAccountEmail.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" color:#ff0000;"
+                                                                  "\">Invalid Email</span></p></body></html>"))
         self.goBackButton.setText(_translate("MainWindow", "Go Back"))
         self.insertEmailVerificationCode.setText(_translate("MainWindow", "Insert the verification \n"
                                                                           "code that we \n"
@@ -489,8 +504,8 @@ class Ui_MainWindow(object):
         self.verificationCodeLabel.setText(_translate("MainWindow", "Verification Code:"))
         self.verifyEmailCodeButton.setText(_translate("MainWindow", "Verify"))
         self.invalidEmailVerificationCode.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" "
-                                                                           "color:#ff0000;\">Invalid Verification Code"
-                                                                           "</span></p></body></html>"))
+                                                                           "color:#ff0000;\">Invalid Verification "
+                                                                           "Code</span></p></body></html>"))
         self.resendEmailVerificationCode.setText(_translate("MainWindow", "Resend Verification Code"))
         self.label.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" color:#006818;\">A new "
                                                     "verification code has been sent</span></p></body></html>"))
@@ -507,8 +522,18 @@ class Ui_MainWindow(object):
         self.createAccountButton.setText(_translate("MainWindow", "Create \n"
                                                                   "Account"))
         self.createUserNameLabel.setText(_translate("MainWindow", "Username:"))
-        self.invalidEmailLabel.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" color:#ff0000;\">"
-                                                                "* Invalid Email</span></p></body></html>"))
+        self.invalidEmailLabel.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" color:#ff0000;\""
+                                                                ">* Invalid Email</span></p></body></html>"))
+        self.usernameFieldEmpty.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" color:#ff0000;\""
+                                                                 ">* Field Empty</span></p><p><span style=\" "
+                                                                 "color:#ff0000;\"><br/></span></p></body></html>"))
+        self.emailFieldEmpty.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" color:#ff0000;\">"
+                                                              "* Field Empty</span></p></body></html>"))
+        self.passwordFieldEmpty.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" color:#ff0000;"
+                                                                 "\">* Field Empty</span></p></body></html>"))
+        self.confirmPasswordFieldEmpty.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" "
+                                                                        "color:#ff0000;\">* Field Empty</span></p>"
+                                                                        "</body></html>"))
         self.welcomeMainFrameLabel.setText(_translate("MainWindow", "Welcome, "))
         self.usernameLabel.setText(_translate("MainWindow", "username"))
         self.passwordsDontMatchLabel.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" "
@@ -521,11 +546,16 @@ class Ui_MainWindow(object):
         self.signUpButton.clicked.connect(lambda: self.signUpAccount_clicked())
         self.createAccountButton.clicked.connect(lambda: self.createAccount())
 
-        # FRAMES OPERATION METHODS
+    # FRAMES OPERATION METHODS
 
     def openMainFrame(self):
         self.mainFrame.setVisible(True)
         self.usernameLabel.setText(self.usernameLineEdit.text())
+
+    def signUpAccount_clicked(self):
+        self.loginRegisterFrame.setVisible(False)
+        self.incorretCredentialsLabel.setVisible(False)
+        self.createAccountFrame.setVisible(True)
 
         # USER ACCOUNT OPERATION METHODS
 
@@ -551,11 +581,6 @@ class Ui_MainWindow(object):
         except User.conn.Error as e:
             print('Error')
 
-    def signUpAccount_clicked(self):
-        self.loginRegisterFrame.setVisible(False)
-        self.incorretCredentialsLabel.setVisible(False)
-        self.createAccountFrame.setVisible(True)
-
     def createAccount(self):
         newUser = DB('database.db')
 
@@ -569,18 +594,40 @@ class Ui_MainWindow(object):
         firstLetter = userEmail[0]
 
         if at_sign != 1 or dot_sign != 1 or firstLetter in ascii_uppercase:
+            self.emailFieldEmpty.setVisible(False)
             self.invalidEmailLabel.setVisible(True)
+
+        elif userName == "":
+            self.usernameFieldEmpty.setVisible(True)
+
+        elif userEmail == "":
+            self.emailFieldEmpty.setVisible(True)
+
+        elif userPassword == "":
+            self.passwordFieldEmpty.setVisible(True)
+
+        elif confirmUserPassword == "":
+            self.confirmPasswordFieldEmpty.setVisible(True)
 
         else:
             self.invalidEmailLabel.setVisible(False)
+
             if userPassword == confirmUserPassword and userPassword != "":
+                self.usernameFieldEmpty.setVisible(False)
+                self.emailFieldEmpty.setVisible(False)
+                self.passwordFieldEmpty.setVisible(False)
+                self.confirmPasswordFieldEmpty.setVisible(False)
                 self.passwordsDontMatchLabel.setVisible(False)
                 self.createAccountFrame.setVisible(False)
+
                 newUser.create_account(email_address=userEmail, password=userPassword, username=userName)
+
                 self.openMainFrame()
                 self.usernameLabel.setText(self.createUserNameLineEdit.text())
 
             else:
+                self.passwordFieldEmpty.setVisible(False)
+                self.confirmPasswordFieldEmpty.setVisible(False)
                 self.passwordsDontMatchLabel.setVisible(True)
 
 
