@@ -1,5 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from db_operations import DB
+from string import ascii_uppercase
 
 
 class Ui_MainWindow(object):
@@ -15,12 +16,15 @@ class Ui_MainWindow(object):
         self.loginRegisterFrame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.loginRegisterFrame.setObjectName("loginRegisterFrame")
         self.usernameLineEdit = QtWidgets.QLineEdit(self.loginRegisterFrame)
+        self.usernameLineEdit.setEnabled(True)
         self.usernameLineEdit.setGeometry(QtCore.QRect(80, 100, 111, 20))
         self.usernameLineEdit.setObjectName("usernameLineEdit")
         self.passwordLineEdit = QtWidgets.QLineEdit(self.loginRegisterFrame)
+        self.passwordLineEdit.setEnabled(True)
         self.passwordLineEdit.setGeometry(QtCore.QRect(80, 130, 111, 20))
         self.passwordLineEdit.setObjectName("passwordLineEdit")
         self.usernameLoginLabel = QtWidgets.QLabel(self.loginRegisterFrame)
+        self.usernameLoginLabel.setEnabled(True)
         self.usernameLoginLabel.setGeometry(QtCore.QRect(10, 100, 71, 20))
         font = QtGui.QFont()
         font.setFamily("Segoe UI Black")
@@ -29,6 +33,7 @@ class Ui_MainWindow(object):
         self.usernameLoginLabel.setFont(font)
         self.usernameLoginLabel.setObjectName("usernameLoginLabel")
         self.passwordLabel = QtWidgets.QLabel(self.loginRegisterFrame)
+        self.passwordLabel.setEnabled(True)
         self.passwordLabel.setGeometry(QtCore.QRect(10, 130, 71, 20))
         font = QtGui.QFont()
         font.setFamily("Segoe UI Black")
@@ -37,6 +42,7 @@ class Ui_MainWindow(object):
         self.passwordLabel.setFont(font)
         self.passwordLabel.setObjectName("passwordLabel")
         self.welcomeLabel = QtWidgets.QLabel(self.loginRegisterFrame)
+        self.welcomeLabel.setEnabled(True)
         self.welcomeLabel.setGeometry(QtCore.QRect(80, 20, 151, 41))
         font = QtGui.QFont()
         font.setFamily("Cooper Black")
@@ -46,6 +52,7 @@ class Ui_MainWindow(object):
         self.welcomeLabel.setFont(font)
         self.welcomeLabel.setObjectName("welcomeLabel")
         self.loginButton = QtWidgets.QPushButton(self.loginRegisterFrame)
+        self.loginButton.setEnabled(True)
         self.loginButton.setGeometry(QtCore.QRect(80, 160, 111, 23))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
@@ -187,18 +194,23 @@ class Ui_MainWindow(object):
         self.loginButton.setFlat(False)
         self.loginButton.setObjectName("loginButton")
         self.signUpButton = QtWidgets.QPushButton(self.loginRegisterFrame)
+        self.signUpButton.setEnabled(True)
         self.signUpButton.setGeometry(QtCore.QRect(80, 240, 111, 23))
         self.signUpButton.setObjectName("signUpButton")
         self.signUpNowLabel = QtWidgets.QLabel(self.loginRegisterFrame)
+        self.signUpNowLabel.setEnabled(True)
         self.signUpNowLabel.setGeometry(QtCore.QRect(80, 200, 161, 41))
         self.signUpNowLabel.setObjectName("signUpNowLabel")
         self.incorretCredentialsLabel = QtWidgets.QLabel(self.loginRegisterFrame)
+        self.incorretCredentialsLabel.setEnabled(True)
         self.incorretCredentialsLabel.setGeometry(QtCore.QRect(80, 80, 121, 16))
         self.incorretCredentialsLabel.setObjectName("incorretCredentialsLabel")
         self.helpButton = QtWidgets.QPushButton(self.loginRegisterFrame)
+        self.helpButton.setEnabled(True)
         self.helpButton.setGeometry(QtCore.QRect(230, 310, 75, 23))
         self.helpButton.setObjectName("helpButton")
         self.helpLabel = QtWidgets.QLabel(self.loginRegisterFrame)
+        self.helpLabel.setEnabled(True)
         self.helpLabel.setGeometry(QtCore.QRect(230, 260, 81, 41))
         self.helpLabel.setObjectName("helpLabel")
         self.helpFrame = QtWidgets.QFrame(self.centralwidget)
@@ -208,12 +220,15 @@ class Ui_MainWindow(object):
         self.helpFrame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.helpFrame.setObjectName("helpFrame")
         self.changeemailButton = QtWidgets.QPushButton(self.helpFrame)
+        self.changeemailButton.setEnabled(True)
         self.changeemailButton.setGeometry(QtCore.QRect(0, 100, 121, 41))
         self.changeemailButton.setObjectName("changeemailButton")
         self.changepasswordButton = QtWidgets.QPushButton(self.helpFrame)
+        self.changepasswordButton.setEnabled(True)
         self.changepasswordButton.setGeometry(QtCore.QRect(0, 160, 141, 41))
         self.changepasswordButton.setObjectName("changepasswordButton")
         self.goBackButton_HelpFrame = QtWidgets.QPushButton(self.helpFrame)
+        self.goBackButton_HelpFrame.setEnabled(True)
         self.goBackButton_HelpFrame.setGeometry(QtCore.QRect(0, 10, 75, 23))
         self.goBackButton_HelpFrame.setObjectName("goBackButton_HelpFrame")
         self.emailHelpFrame = QtWidgets.QFrame(self.centralwidget)
@@ -223,6 +238,7 @@ class Ui_MainWindow(object):
         self.emailHelpFrame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.emailHelpFrame.setObjectName("emailHelpFrame")
         self.insertEmailLabel = QtWidgets.QLabel(self.emailHelpFrame)
+        self.insertEmailLabel.setEnabled(True)
         self.insertEmailLabel.setGeometry(QtCore.QRect(10, 20, 281, 91))
         font = QtGui.QFont()
         font.setFamily("Cooper Black")
@@ -230,18 +246,23 @@ class Ui_MainWindow(object):
         self.insertEmailLabel.setFont(font)
         self.insertEmailLabel.setObjectName("insertEmailLabel")
         self.accountEmailLineEdit = QtWidgets.QLineEdit(self.emailHelpFrame)
+        self.accountEmailLineEdit.setEnabled(True)
         self.accountEmailLineEdit.setGeometry(QtCore.QRect(70, 160, 131, 20))
         self.accountEmailLineEdit.setObjectName("accountEmailLineEdit")
         self.yourEmailLabel = QtWidgets.QLabel(self.emailHelpFrame)
+        self.yourEmailLabel.setEnabled(True)
         self.yourEmailLabel.setGeometry(QtCore.QRect(10, 160, 71, 21))
         self.yourEmailLabel.setObjectName("yourEmailLabel")
         self.sendCodeButton = QtWidgets.QPushButton(self.emailHelpFrame)
+        self.sendCodeButton.setEnabled(True)
         self.sendCodeButton.setGeometry(QtCore.QRect(200, 150, 91, 41))
         self.sendCodeButton.setObjectName("sendCodeButton")
         self.invalidAccountEmail = QtWidgets.QLabel(self.emailHelpFrame)
+        self.invalidAccountEmail.setEnabled(True)
         self.invalidAccountEmail.setGeometry(QtCore.QRect(100, 140, 81, 16))
         self.invalidAccountEmail.setObjectName("invalidAccountEmail")
         self.goBackButton = QtWidgets.QPushButton(self.emailHelpFrame)
+        self.goBackButton.setEnabled(True)
         self.goBackButton.setGeometry(QtCore.QRect(0, 10, 75, 23))
         self.goBackButton.setObjectName("goBackButton")
         self.finalEmailAccountHelpFrame = QtWidgets.QFrame(self.centralwidget)
@@ -251,6 +272,7 @@ class Ui_MainWindow(object):
         self.finalEmailAccountHelpFrame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.finalEmailAccountHelpFrame.setObjectName("finalEmailAccountHelpFrame")
         self.insertEmailVerificationCode = QtWidgets.QLabel(self.finalEmailAccountHelpFrame)
+        self.insertEmailVerificationCode.setEnabled(True)
         self.insertEmailVerificationCode.setGeometry(QtCore.QRect(30, 10, 271, 101))
         font = QtGui.QFont()
         font.setFamily("Cooper Black")
@@ -258,21 +280,27 @@ class Ui_MainWindow(object):
         self.insertEmailVerificationCode.setFont(font)
         self.insertEmailVerificationCode.setObjectName("insertEmailVerificationCode")
         self.emailVerificationCodeLineEdit = QtWidgets.QLineEdit(self.finalEmailAccountHelpFrame)
+        self.emailVerificationCodeLineEdit.setEnabled(True)
         self.emailVerificationCodeLineEdit.setGeometry(QtCore.QRect(100, 140, 113, 20))
         self.emailVerificationCodeLineEdit.setObjectName("emailVerificationCodeLineEdit")
         self.verificationCodeLabel = QtWidgets.QLabel(self.finalEmailAccountHelpFrame)
+        self.verificationCodeLabel.setEnabled(True)
         self.verificationCodeLabel.setGeometry(QtCore.QRect(10, 120, 111, 61))
         self.verificationCodeLabel.setObjectName("verificationCodeLabel")
         self.verifyEmailCodeButton = QtWidgets.QPushButton(self.finalEmailAccountHelpFrame)
+        self.verifyEmailCodeButton.setEnabled(True)
         self.verifyEmailCodeButton.setGeometry(QtCore.QRect(220, 140, 75, 23))
         self.verifyEmailCodeButton.setObjectName("verifyEmailCodeButton")
         self.invalidEmailVerificationCode = QtWidgets.QLabel(self.finalEmailAccountHelpFrame)
+        self.invalidEmailVerificationCode.setEnabled(True)
         self.invalidEmailVerificationCode.setGeometry(QtCore.QRect(100, 90, 121, 81))
         self.invalidEmailVerificationCode.setObjectName("invalidEmailVerificationCode")
         self.resendEmailVerificationCode = QtWidgets.QPushButton(self.finalEmailAccountHelpFrame)
+        self.resendEmailVerificationCode.setEnabled(True)
         self.resendEmailVerificationCode.setGeometry(QtCore.QRect(90, 210, 131, 41))
         self.resendEmailVerificationCode.setObjectName("resendEmailVerificationCode")
         self.label = QtWidgets.QLabel(self.finalEmailAccountHelpFrame)
+        self.label.setEnabled(True)
         self.label.setGeometry(QtCore.QRect(70, 170, 191, 20))
         self.label.setObjectName("label")
         self.changeEmailAccountFrame = QtWidgets.QFrame(self.centralwidget)
@@ -282,18 +310,23 @@ class Ui_MainWindow(object):
         self.changeEmailAccountFrame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.changeEmailAccountFrame.setObjectName("changeEmailAccountFrame")
         self.newAccountEmailLabel = QtWidgets.QLabel(self.changeEmailAccountFrame)
+        self.newAccountEmailLabel.setEnabled(True)
         self.newAccountEmailLabel.setGeometry(QtCore.QRect(60, 70, 101, 41))
         self.newAccountEmailLabel.setObjectName("newAccountEmailLabel")
         self.newAccountEmailLineEdit = QtWidgets.QLineEdit(self.changeEmailAccountFrame)
+        self.newAccountEmailLineEdit.setEnabled(True)
         self.newAccountEmailLineEdit.setGeometry(QtCore.QRect(120, 80, 113, 20))
         self.newAccountEmailLineEdit.setObjectName("newAccountEmailLineEdit")
         self.confirmNewAccountEmailLineEdit = QtWidgets.QLineEdit(self.changeEmailAccountFrame)
+        self.confirmNewAccountEmailLineEdit.setEnabled(True)
         self.confirmNewAccountEmailLineEdit.setGeometry(QtCore.QRect(120, 110, 113, 20))
         self.confirmNewAccountEmailLineEdit.setObjectName("confirmNewAccountEmailLineEdit")
         self.confirmNewAccountEmailLabel = QtWidgets.QLabel(self.changeEmailAccountFrame)
+        self.confirmNewAccountEmailLabel.setEnabled(True)
         self.confirmNewAccountEmailLabel.setGeometry(QtCore.QRect(20, 110, 101, 16))
         self.confirmNewAccountEmailLabel.setObjectName("confirmNewAccountEmailLabel")
         self.insertNewAccountEmailAdressLabel = QtWidgets.QLabel(self.changeEmailAccountFrame)
+        self.insertNewAccountEmailAdressLabel.setEnabled(True)
         self.insertNewAccountEmailAdressLabel.setGeometry(QtCore.QRect(50, -30, 251, 141))
         font = QtGui.QFont()
         font.setFamily("Cooper Black")
@@ -301,6 +334,7 @@ class Ui_MainWindow(object):
         self.insertNewAccountEmailAdressLabel.setFont(font)
         self.insertNewAccountEmailAdressLabel.setObjectName("insertNewAccountEmailAdressLabel")
         self.saveNewEmailAdressButton = QtWidgets.QPushButton(self.changeEmailAccountFrame)
+        self.saveNewEmailAdressButton.setEnabled(True)
         self.saveNewEmailAdressButton.setGeometry(QtCore.QRect(120, 140, 111, 41))
         self.saveNewEmailAdressButton.setObjectName("saveNewEmailAdressButton")
         self.createAccountFrame = QtWidgets.QFrame(self.centralwidget)
@@ -310,6 +344,7 @@ class Ui_MainWindow(object):
         self.createAccountFrame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.createAccountFrame.setObjectName("createAccountFrame")
         self.createAccountLabel = QtWidgets.QLabel(self.createAccountFrame)
+        self.createAccountLabel.setEnabled(True)
         self.createAccountLabel.setGeometry(QtCore.QRect(100, 0, 191, 71))
         font = QtGui.QFont()
         font.setFamily("Cooper Black")
@@ -317,36 +352,46 @@ class Ui_MainWindow(object):
         self.createAccountLabel.setFont(font)
         self.createAccountLabel.setObjectName("createAccountLabel")
         self.createEmailLabel = QtWidgets.QLabel(self.createAccountFrame)
+        self.createEmailLabel.setEnabled(True)
         self.createEmailLabel.setGeometry(QtCore.QRect(70, 130, 31, 16))
         self.createEmailLabel.setObjectName("createEmailLabel")
         self.createPasswordLabel = QtWidgets.QLabel(self.createAccountFrame)
+        self.createPasswordLabel.setEnabled(True)
         self.createPasswordLabel.setGeometry(QtCore.QRect(50, 160, 51, 16))
         self.createPasswordLabel.setObjectName("createPasswordLabel")
         self.confirmPasswordLabel = QtWidgets.QLabel(self.createAccountFrame)
+        self.confirmPasswordLabel.setEnabled(True)
         self.confirmPasswordLabel.setGeometry(QtCore.QRect(10, 190, 91, 16))
         self.confirmPasswordLabel.setObjectName("confirmPasswordLabel")
         self.createEmailLineEdit = QtWidgets.QLineEdit(self.createAccountFrame)
+        self.createEmailLineEdit.setEnabled(True)
         self.createEmailLineEdit.setGeometry(QtCore.QRect(110, 130, 113, 20))
         self.createEmailLineEdit.setObjectName("createEmailLineEdit")
         self.createPasswordLineEdit = QtWidgets.QLineEdit(self.createAccountFrame)
+        self.createPasswordLineEdit.setEnabled(True)
         self.createPasswordLineEdit.setGeometry(QtCore.QRect(110, 160, 113, 20))
         self.createPasswordLineEdit.setInputMethodHints(QtCore.Qt.ImhHiddenText | QtCore.Qt.ImhSensitiveData)
         self.createPasswordLineEdit.setObjectName("createPasswordLineEdit")
         self.confirmPasswordLineEdit = QtWidgets.QLineEdit(self.createAccountFrame)
+        self.confirmPasswordLineEdit.setEnabled(True)
         self.confirmPasswordLineEdit.setGeometry(QtCore.QRect(110, 190, 113, 20))
         self.confirmPasswordLineEdit.setObjectName("confirmPasswordLineEdit")
         self.createAccountButton = QtWidgets.QPushButton(self.createAccountFrame)
+        self.createAccountButton.setEnabled(True)
         self.createAccountButton.setGeometry(QtCore.QRect(110, 220, 111, 51))
         self.createAccountButton.setObjectName("createAccountButton")
-        self.passwordsDontMatchLabel = QtWidgets.QLabel(self.createAccountFrame)
-        self.passwordsDontMatchLabel.setGeometry(QtCore.QRect(100, 60, 111, 41))
-        self.passwordsDontMatchLabel.setObjectName("passwordsDontMatchLabel")
         self.createUserNameLabel = QtWidgets.QLabel(self.createAccountFrame)
+        self.createUserNameLabel.setEnabled(True)
         self.createUserNameLabel.setGeometry(QtCore.QRect(50, 100, 51, 21))
         self.createUserNameLabel.setObjectName("createUserNameLabel")
         self.createUserNameLineEdit = QtWidgets.QLineEdit(self.createAccountFrame)
+        self.createUserNameLineEdit.setEnabled(True)
         self.createUserNameLineEdit.setGeometry(QtCore.QRect(110, 100, 113, 20))
         self.createUserNameLineEdit.setObjectName("createUserNameLineEdit")
+        self.invalidEmailLabel = QtWidgets.QLabel(self.createAccountFrame)
+        self.invalidEmailLabel.setEnabled(True)
+        self.invalidEmailLabel.setGeometry(QtCore.QRect(230, 130, 71, 21))
+        self.invalidEmailLabel.setObjectName("invalidEmailLabel")
         self.mainFrame = QtWidgets.QFrame(self.centralwidget)
         self.mainFrame.setEnabled(True)
         self.mainFrame.setGeometry(QtCore.QRect(0, 0, 781, 611))
@@ -362,19 +407,24 @@ class Ui_MainWindow(object):
         self.welcomeMainFrameLabel.setFont(font)
         self.welcomeMainFrameLabel.setObjectName("welcomeMainFrameLabel")
         self.usernameLabel = QtWidgets.QLabel(self.mainFrame)
+        self.usernameLabel.setEnabled(True)
         self.usernameLabel.setGeometry(QtCore.QRect(380, 130, 111, 41))
         font = QtGui.QFont()
         font.setFamily("Cooper Black")
         font.setPointSize(16)
         self.usernameLabel.setFont(font)
         self.usernameLabel.setObjectName("usernameLabel")
+        self.passwordsDontMatchLabel = QtWidgets.QLabel(self.mainFrame)
+        self.passwordsDontMatchLabel.setEnabled(True)
+        self.passwordsDontMatchLabel.setGeometry(QtCore.QRect(480, 260, 71, 41))
+        self.passwordsDontMatchLabel.setObjectName("passwordsDontMatchLabel")
         self.helpFrame.raise_()
         self.emailHelpFrame.raise_()
         self.finalEmailAccountHelpFrame.raise_()
         self.changeEmailAccountFrame.raise_()
-        self.createAccountFrame.raise_()
         self.mainFrame.raise_()
         self.loginRegisterFrame.raise_()
+        self.createAccountFrame.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 791, 21))
@@ -399,6 +449,7 @@ class Ui_MainWindow(object):
         # WIDGETS VISIBILITIES
         self.incorretCredentialsLabel.setVisible(False)
         self.passwordsDontMatchLabel.setVisible(False)
+        self.invalidEmailLabel.setVisible(False)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -411,9 +462,9 @@ class Ui_MainWindow(object):
         self.signUpButton.setText(_translate("MainWindow", "Sign Up"))
         self.signUpNowLabel.setText(_translate("MainWindow", "Don\'t have a Lummix account? \n"
                                                              " Sign Up now !"))
-        self.incorretCredentialsLabel.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" "
-                                                                       "color:#ff0000;\">Invalid Email or Password"
-                                                                       "</span></p></body></html>"))
+        self.incorretCredentialsLabel.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" color:"
+                                                                       "#ff0000;\">Invalid Email or Password</span>"
+                                                                       "</p></body></html>"))
         self.helpButton.setText(_translate("MainWindow", "Help Me"))
         self.helpLabel.setText(_translate("MainWindow", "Need Help? \n"
                                                         "Click on the \n"
@@ -428,8 +479,9 @@ class Ui_MainWindow(object):
         self.yourEmailLabel.setText(_translate("MainWindow", "Your Email: "))
         self.sendCodeButton.setText(_translate("MainWindow", "Send \n"
                                                              "Verification Code"))
-        self.invalidAccountEmail.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" color:#ff0000;"
-                                                                  "\">Invalid Email</span></p></body></html>"))
+        self.invalidAccountEmail.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" "
+                                                                  "color:#ff0000;\">Invalid Email</span></p></body>"
+                                                                  "</html>"))
         self.goBackButton.setText(_translate("MainWindow", "Go Back"))
         self.insertEmailVerificationCode.setText(_translate("MainWindow", "Insert the verification \n"
                                                                           "code that we \n"
@@ -454,24 +506,29 @@ class Ui_MainWindow(object):
         self.confirmPasswordLabel.setText(_translate("MainWindow", "Confirm Password:"))
         self.createAccountButton.setText(_translate("MainWindow", "Create \n"
                                                                   "Account"))
-        self.passwordsDontMatchLabel.setText(_translate("MainWindow", "<html><head/><body><p><span style=\""
-                                                                      "color:#ff0000;\">Passwords Don\'t Match</span>"
-                                                                      "</p></body></html>"))
         self.createUserNameLabel.setText(_translate("MainWindow", "Username:"))
+        self.invalidEmailLabel.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" color:#ff0000;\">"
+                                                                "* Invalid Email</span></p></body></html>"))
         self.welcomeMainFrameLabel.setText(_translate("MainWindow", "Welcome, "))
         self.usernameLabel.setText(_translate("MainWindow", "username"))
+        self.passwordsDontMatchLabel.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" "
+                                                                      "color:#ff0000;\">* Passwords</span></p><p>"
+                                                                      "<span style=\" color:#ff0000;\"> Don\'t Match"
+                                                                      "</span></p></body></html>"))
 
         # BUTTON ACTIONS
         self.loginButton.clicked.connect(lambda: self.login())
         self.signUpButton.clicked.connect(lambda: self.signUpAccount_clicked())
         self.createAccountButton.clicked.connect(lambda: self.createAccount())
 
-    # FRAMES OPERATION METHODS
+        # FRAMES OPERATION METHODS
+
     def openMainFrame(self):
         self.mainFrame.setVisible(True)
         self.usernameLabel.setText(self.usernameLineEdit.text())
 
-    # USER ACCOUNT OPERATION METHODS
+        # USER ACCOUNT OPERATION METHODS
+
     def login(self):
         User = DB('database.db')
         try:
@@ -507,16 +564,24 @@ class Ui_MainWindow(object):
         userPassword = self.createPasswordLineEdit.text()
         confirmUserPassword = self.confirmPasswordLineEdit.text()
 
-        if userPassword == confirmUserPassword:
-            self.passwordsDontMatchLabel.setVisible(False)
-            self.createAccountFrame.setVisible(False)
-            newUser.create_account(email_address=userEmail, password=userPassword, username=userName)
-            self.openMainFrame()
-            self.usernameLabel.setText(self.createUserNameLineEdit.text())
+        at_sign = userEmail.count('@')
+        dot_sign = userEmail.count('.')
+        firstLetter = userEmail[0]
+
+        if at_sign != 1 or dot_sign != 1 or firstLetter in ascii_uppercase:
+            self.invalidEmailLabel.setVisible(True)
 
         else:
-            self.passwordsDontMatchLabel.setVisible(True)
+            self.invalidEmailLabel.setVisible(False)
+            if userPassword == confirmUserPassword and userPassword != "":
+                self.passwordsDontMatchLabel.setVisible(False)
+                self.createAccountFrame.setVisible(False)
+                newUser.create_account(email_address=userEmail, password=userPassword, username=userName)
+                self.openMainFrame()
+                self.usernameLabel.setText(self.createUserNameLineEdit.text())
 
+            else:
+                self.passwordsDontMatchLabel.setVisible(True)
 
 
 if __name__ == "__main__":

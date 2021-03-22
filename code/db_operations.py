@@ -57,9 +57,9 @@ class DB:
 
     # DATA RETURN
     def getUsername(self, email):
-        self.cursor.execute('SELECT username FROM user '
-                            'WHERE email=?', email)
-        return email
+        sql_query = self.cursor.execute('SELECT username FROM user '
+                                        'WHERE email=?', email)
+        return sql_query
 
     def getAllEmails(self, alphabeticalOrder=True, encrypted=True):
         sql_query = 'SELECT email FROM user'
