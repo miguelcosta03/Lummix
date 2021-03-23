@@ -55,6 +55,22 @@ class DB:
                                 'WHERE email=? AND password=?', credentials)
         self.conn.commit()
 
+    def addWebsiteURL(self, username, websiteURL):
+        credentials = [(websiteURL, username,)]
+
+        self.cursor.executemany('UPDATE user '
+                                'SET websiteURL=? '
+                                'WHERE username=?', credentials)
+
+        self.conn.commit()
+
+    def addWebsiteServerHostIP(self, username, hostIP):
+        credentials = [(hostIP, username)]
+
+        self.cursor.executemany('UPDATE user '
+                                'SET websiteHostServerIP=? '
+                                'WHERE username=?', credentials)
+
     # DATA RETURN
     def getUsername(self, email):
         sql_query = self.cursor.execute('SELECT username FROM user '
@@ -119,6 +135,48 @@ class DB:
                     print(formatted_username)
                 else:
                     Credentials.decryptUserName(encrypted_username=formatted_username)
+
+    def getAllWebsiteURLs(self, alphabeticalOrder=True, encrypted=True):
+        sql_query = 'SELECT websiteURL FROM user '
+        sql_query_alphabetical_order = 'SELECT websiteURL FROM user ORDER BY websiteURL'
+
+        for row in self.cursor.execute(sql_query):
+            formatted_websiteURL = str(row).replace(',', '').replace('(', '').replace(')', '').replace("'", '')
+            if alphabeticalOrder:
+                for websiteURL_row in self.cursor.execute(sql_query_alphabetical_order):
+                    formatted_websiteURL_row = str(websiteURL_row).replace(',', '').replace('(', '').replace(')', '')\
+                        .replace("'", '')
+                    if encrypted:
+                        print(formatted_websiteURL_row)
+                    else:
+                        Credentials.decryptWebsiteURL(encryptedURL=str(formatted_websiteURL_row))
+            else:
+                if encrypted:
+                    print(formatted_websiteURL)
+                else:
+                    Credentials.decryptWebsiteURL(encryptedURL=str(formatted_websiteURL))
+
+    def getAllHostServerIPs(self, alphabeticalOrder=True, encrypted=True):
+        sql_query = 'SELECT websiteHostServerIP FROM user '
+        sql_query_alphabetical_order = 'SELECT websiteHostServerIP FROM user ORDER BY websiteHostServerIP'
+
+        for row in self.cursor.execute(sql_query):
+            formatted_hostServerIP = str(row).replace(',', '').replace('(', '').replace(')', '').replace("'", '')
+            if alphabeticalOrder:
+                for hostServerIP_row in self.cursor.execute(sql_query_alphabetical_order):
+                    formatted_hostServerIP_row = str(hostServerIP_row).replace(',', '').replace('(', '')\
+                        .replace(')', '').replace("'", '')
+                    if encrypted:
+                        print(formatted_hostServerIP_row)
+
+                    else:
+                        Credentials.decryptWebsiteHostServerIP(encryptedIP=str(formatted_hostServerIP_row))
+            else:
+                if encrypted:
+                    print(formatted_hostServerIP)
+                else:
+                    Credentials.decryptWebsiteHostServerIP(encryptedIP=str(formatted_hostServerIP))
+
 
 
 if __name__ == "__main__":

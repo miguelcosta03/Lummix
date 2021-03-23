@@ -6,7 +6,7 @@ from string import ascii_uppercase
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(791, 635)
+        MainWindow.resize(786, 611)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.loginRegisterFrame = QtWidgets.QFrame(self.centralwidget)
@@ -393,17 +393,25 @@ class Ui_MainWindow(object):
         self.invalidEmailLabel.setGeometry(QtCore.QRect(230, 130, 71, 21))
         self.invalidEmailLabel.setObjectName("invalidEmailLabel")
         self.usernameFieldEmpty = QtWidgets.QLabel(self.createAccountFrame)
+        self.usernameFieldEmpty.setEnabled(True)
         self.usernameFieldEmpty.setGeometry(QtCore.QRect(230, 100, 71, 16))
         self.usernameFieldEmpty.setObjectName("usernameFieldEmpty")
         self.emailFieldEmpty = QtWidgets.QLabel(self.createAccountFrame)
+        self.emailFieldEmpty.setEnabled(True)
         self.emailFieldEmpty.setGeometry(QtCore.QRect(230, 130, 71, 16))
         self.emailFieldEmpty.setObjectName("emailFieldEmpty")
         self.passwordFieldEmpty = QtWidgets.QLabel(self.createAccountFrame)
-        self.passwordFieldEmpty.setGeometry(QtCore.QRect(230, 160, 71, 16))
+        self.passwordFieldEmpty.setEnabled(True)
+        self.passwordFieldEmpty.setGeometry(QtCore.QRect(10, 10, 71, 16))
         self.passwordFieldEmpty.setObjectName("passwordFieldEmpty")
         self.confirmPasswordFieldEmpty = QtWidgets.QLabel(self.createAccountFrame)
+        self.confirmPasswordFieldEmpty.setEnabled(True)
         self.confirmPasswordFieldEmpty.setGeometry(QtCore.QRect(230, 190, 81, 16))
         self.confirmPasswordFieldEmpty.setObjectName("confirmPasswordFieldEmpty")
+        self.passwordsDontMatchLabel = QtWidgets.QLabel(self.createAccountFrame)
+        self.passwordsDontMatchLabel.setEnabled(True)
+        self.passwordsDontMatchLabel.setGeometry(QtCore.QRect(230, 160, 61, 51))
+        self.passwordsDontMatchLabel.setObjectName("passwordsDontMatchLabel")
         self.mainFrame = QtWidgets.QFrame(self.centralwidget)
         self.mainFrame.setEnabled(True)
         self.mainFrame.setGeometry(QtCore.QRect(0, 0, 781, 611))
@@ -426,20 +434,59 @@ class Ui_MainWindow(object):
         font.setPointSize(16)
         self.usernameLabel.setFont(font)
         self.usernameLabel.setObjectName("usernameLabel")
-        self.passwordsDontMatchLabel = QtWidgets.QLabel(self.mainFrame)
-        self.passwordsDontMatchLabel.setEnabled(True)
-        self.passwordsDontMatchLabel.setGeometry(QtCore.QRect(480, 260, 71, 41))
-        self.passwordsDontMatchLabel.setObjectName("passwordsDontMatchLabel")
+        self.myWebsitesButton = QtWidgets.QPushButton(self.mainFrame)
+        self.myWebsitesButton.setEnabled(True)
+        self.myWebsitesButton.setGeometry(QtCore.QRect(250, 230, 91, 51))
+        self.myWebsitesButton.setObjectName("myWebsitesButton")
+        self.registerANewWebsiteButton = QtWidgets.QPushButton(self.mainFrame)
+        self.registerANewWebsiteButton.setEnabled(True)
+        self.registerANewWebsiteButton.setGeometry(QtCore.QRect(380, 230, 101, 51))
+        self.registerANewWebsiteButton.setObjectName("registerANewWebsiteButton")
+        self.registerNewWebsiteFrame = QtWidgets.QFrame(self.centralwidget)
+        self.registerNewWebsiteFrame.setEnabled(True)
+        self.registerNewWebsiteFrame.setGeometry(QtCore.QRect(229, 99, 351, 341))
+        self.registerNewWebsiteFrame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.registerNewWebsiteFrame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.registerNewWebsiteFrame.setObjectName("registerNewWebsiteFrame")
+        self.registerNewWebsiteLabel = QtWidgets.QLabel(self.registerNewWebsiteFrame)
+        self.registerNewWebsiteLabel.setEnabled(True)
+        self.registerNewWebsiteLabel.setGeometry(QtCore.QRect(120, 0, 161, 81))
+        font = QtGui.QFont()
+        font.setFamily("Cooper Black")
+        font.setPointSize(16)
+        self.registerNewWebsiteLabel.setFont(font)
+        self.registerNewWebsiteLabel.setObjectName("registerNewWebsiteLabel")
+        self.websiteHostServerIPLabel = QtWidgets.QLabel(self.registerNewWebsiteFrame)
+        self.websiteHostServerIPLabel.setEnabled(True)
+        self.websiteHostServerIPLabel.setGeometry(QtCore.QRect(0, 130, 121, 16))
+        self.websiteHostServerIPLabel.setObjectName("websiteHostServerIPLabel")
+        self.websiteHostServerIPLineEdit = QtWidgets.QLineEdit(self.registerNewWebsiteFrame)
+        self.websiteHostServerIPLineEdit.setEnabled(True)
+        self.websiteHostServerIPLineEdit.setGeometry(QtCore.QRect(120, 130, 113, 20))
+        self.websiteHostServerIPLineEdit.setObjectName("websiteHostServerIPLineEdit")
+        self.websiteURLLabel = QtWidgets.QLabel(self.registerNewWebsiteFrame)
+        self.websiteURLLabel.setEnabled(True)
+        self.websiteURLLabel.setGeometry(QtCore.QRect(50, 100, 71, 16))
+        self.websiteURLLabel.setObjectName("websiteURLLabel")
+        self.websiteURLLineEdit = QtWidgets.QLineEdit(self.registerNewWebsiteFrame)
+        self.websiteURLLineEdit.setEnabled(True)
+        self.websiteURLLineEdit.setGeometry(QtCore.QRect(120, 100, 113, 20))
+        self.websiteURLLineEdit.setObjectName("websiteURLLineEdit")
+        self.registerNewWebsiteButton = QtWidgets.QPushButton(self.registerNewWebsiteFrame)
+        self.registerNewWebsiteButton.setEnabled(True)
+        self.registerNewWebsiteButton.setGeometry(QtCore.QRect(120, 160, 111, 51))
+        self.registerNewWebsiteButton.setObjectName("registerNewWebsiteButton")
         self.helpFrame.raise_()
         self.emailHelpFrame.raise_()
         self.finalEmailAccountHelpFrame.raise_()
         self.changeEmailAccountFrame.raise_()
-        self.mainFrame.raise_()
         self.loginRegisterFrame.raise_()
         self.createAccountFrame.raise_()
+        self.mainFrame.raise_()
+        self.registerNewWebsiteFrame.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 791, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 786, 21))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -457,6 +504,7 @@ class Ui_MainWindow(object):
         self.finalEmailAccountHelpFrame.setVisible(False)
         self.helpFrame.setVisible(False)
         self.emailHelpFrame.setVisible(False)
+        self.registerNewWebsiteFrame.setVisible(False)
 
         # WIDGETS VISIBILITIES
         self.incorretCredentialsLabel.setVisible(False)
@@ -478,9 +526,9 @@ class Ui_MainWindow(object):
         self.signUpButton.setText(_translate("MainWindow", "Sign Up"))
         self.signUpNowLabel.setText(_translate("MainWindow", "Don\'t have a Lummix account? \n"
                                                              " Sign Up now !"))
-        self.incorretCredentialsLabel.setText(_translate("MainWindow", "<html><head/><body><p><span style=\""
-                                                                       " color:#ff0000;\">Invalid Email or Password"
-                                                                       "</span></p></body></html>"))
+        self.incorretCredentialsLabel.setText(_translate("MainWindow",
+                                                         "<html><head/><body><p><span style=\" color:#ff0000;\""
+                                                         ">Invalid Email or Password</span></p></body></html>"))
         self.helpButton.setText(_translate("MainWindow", "Help Me"))
         self.helpLabel.setText(_translate("MainWindow", "Need Help? \n"
                                                         "Click on the \n"
@@ -495,20 +543,20 @@ class Ui_MainWindow(object):
         self.yourEmailLabel.setText(_translate("MainWindow", "Your Email: "))
         self.sendCodeButton.setText(_translate("MainWindow", "Send \n"
                                                              "Verification Code"))
-        self.invalidAccountEmail.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" color:#ff0000;"
-                                                                  "\">Invalid Email</span></p></body></html>"))
+        self.invalidAccountEmail.setText(_translate("MainWindow",
+                                                    "<html><head/><body><p><span style=\" color:#ff0000;\""
+                                                    ">Invalid Email</span></p></body></html>"))
         self.goBackButton.setText(_translate("MainWindow", "Go Back"))
         self.insertEmailVerificationCode.setText(_translate("MainWindow", "Insert the verification \n"
                                                                           "code that we \n"
                                                                           "sent to you"))
         self.verificationCodeLabel.setText(_translate("MainWindow", "Verification Code:"))
         self.verifyEmailCodeButton.setText(_translate("MainWindow", "Verify"))
-        self.invalidEmailVerificationCode.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" "
-                                                                           "color:#ff0000;\">Invalid Verification "
-                                                                           "Code</span></p></body></html>"))
+        self.invalidEmailVerificationCode.setText(_translate("MainWindow",
+                                                             "<html><head/><body><p><span style=\" color:#ff0000;\">Invalid Verification Code</span></p></body></html>"))
         self.resendEmailVerificationCode.setText(_translate("MainWindow", "Resend Verification Code"))
-        self.label.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" color:#006818;\">A new "
-                                                    "verification code has been sent</span></p></body></html>"))
+        self.label.setText(_translate("MainWindow",
+                                      "<html><head/><body><p><span style=\" color:#006818;\">A new verification code has been sent</span></p></body></html>"))
         self.newAccountEmailLabel.setText(_translate("MainWindow", "New Email: "))
         self.confirmNewAccountEmailLabel.setText(_translate("MainWindow", "Confirm New Email:"))
         self.insertNewAccountEmailAdressLabel.setText(_translate("MainWindow", "Insert the new \n"
@@ -522,29 +570,44 @@ class Ui_MainWindow(object):
         self.createAccountButton.setText(_translate("MainWindow", "Create \n"
                                                                   "Account"))
         self.createUserNameLabel.setText(_translate("MainWindow", "Username:"))
-        self.invalidEmailLabel.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" color:#ff0000;\""
-                                                                ">* Invalid Email</span></p></body></html>"))
-        self.usernameFieldEmpty.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" color:#ff0000;\""
-                                                                 ">* Field Empty</span></p><p><span style=\" "
-                                                                 "color:#ff0000;\"><br/></span></p></body></html>"))
-        self.emailFieldEmpty.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" color:#ff0000;\">"
-                                                              "* Field Empty</span></p></body></html>"))
-        self.passwordFieldEmpty.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" color:#ff0000;"
-                                                                 "\">* Field Empty</span></p></body></html>"))
-        self.confirmPasswordFieldEmpty.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" "
-                                                                        "color:#ff0000;\">* Field Empty</span></p>"
-                                                                        "</body></html>"))
+        self.invalidEmailLabel.setText(_translate("MainWindow", "<html><head/><body><p><span style=\""
+                                                                " color:#ff0000;\">* Invalid Email</span>"
+                                                                "</p></body></html>"))
+        self.usernameFieldEmpty.setText(_translate("MainWindow", "<html><head/><body><p><span style=\""
+                                                                 " color:#ff0000;\">* Field Empty</span></p><p>"
+                                                                 "<span style=\" color:#ff0000;\"><br/></span>"
+                                                                 "</p></body></html>"))
+        self.emailFieldEmpty.setText(_translate("MainWindow", "<html><head/><body><p><span style=\""
+                                                              " color:#ff0000;\">* Field Empty</span></p>"
+                                                              "</body></html>"))
+        self.passwordFieldEmpty.setText(_translate("MainWindow", "<html><head/><body><p><span style=\""
+                                                                 " color:#ff0000;\">* Field Empty</span></p></body>"
+                                                                 "</html>"))
+        self.confirmPasswordFieldEmpty.setText(_translate("MainWindow", "<html><head/><body><p><span style=\""
+                                                                        " color:#ff0000;\">* Field Empty</span>"
+                                                                        "</p></body></html>"))
+        self.passwordsDontMatchLabel.setText(_translate("MainWindow", "<html><head/><body><p><span style=\""
+                                                                      " color:#ff0000;\">* Passwords </span>"
+                                                                      "</p><p><span style=\" color:#ff0000;\">"
+                                                                      " Don\'t Match</span></p></body></html>"))
         self.welcomeMainFrameLabel.setText(_translate("MainWindow", "Welcome, "))
         self.usernameLabel.setText(_translate("MainWindow", "username"))
-        self.passwordsDontMatchLabel.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" "
-                                                                      "color:#ff0000;\">* Passwords</span></p><p>"
-                                                                      "<span style=\" color:#ff0000;\"> Don\'t Match"
-                                                                      "</span></p></body></html>"))
+        self.myWebsitesButton.setText(_translate("MainWindow", "My Websites"))
+        self.registerANewWebsiteButton.setText(_translate("MainWindow", "Register \n"
+                                                                        "a new Website"))
+        self.registerNewWebsiteLabel.setText(_translate("MainWindow", "Register a \n"
+                                                                      " new Website"))
+        self.websiteHostServerIPLabel.setText(_translate("MainWindow", "Website Host Server IP: "))
+        self.websiteURLLabel.setText(_translate("MainWindow", "Website URL:"))
+        self.registerNewWebsiteButton.setText(_translate("MainWindow", "Register new \n"
+                                                                       " Website"))
 
         # BUTTON ACTIONS
         self.loginButton.clicked.connect(lambda: self.login())
         self.signUpButton.clicked.connect(lambda: self.signUpAccount_clicked())
         self.createAccountButton.clicked.connect(lambda: self.createAccount())
+        self.registerANewWebsiteButton.clicked.connect(lambda: self.register_new_website_click())
+        self.registerNewWebsiteButton.clicked.connect(lambda: self.registerNewWebsite())
 
     # FRAMES OPERATION METHODS
 
@@ -629,6 +692,23 @@ class Ui_MainWindow(object):
                 self.passwordFieldEmpty.setVisible(False)
                 self.confirmPasswordFieldEmpty.setVisible(False)
                 self.passwordsDontMatchLabel.setVisible(True)
+
+    def register_new_website_click(self):
+        self.welcomeMainFrameLabel.setVisible(False)
+        self.usernameLabel.setVisible(False)
+        self.myWebsitesButton.setVisible(False)
+        self.registerANewWebsiteButton.setVisible(False)
+        self.registerNewWebsiteFrame.setVisible(True)
+
+    def registerNewWebsite(self):
+        currentUser = DB('database.db')
+
+        username = self.usernameLineEdit.text()
+        url = self.websiteURLLineEdit.text()
+        host_ip = self.websiteHostServerIPLineEdit.text()
+
+        currentUser.addWebsiteServerHostIP(username=username, hostIP=host_ip)
+        currentUser.addWebsiteURL(username=username, websiteURL=url)
 
 
 if __name__ == "__main__":
